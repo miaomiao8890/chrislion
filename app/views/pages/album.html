@@ -1,0 +1,48 @@
+{% extends '../layout.html' %}
+
+{% block content %}
+
+<!-- 头部 START -->
+{% include "../includes/template_header.html" %}
+<!-- 头部 END -->
+
+<div class="search-bar clearfix">
+  <img src="/hb/images/search-icon.png" alt="">
+  <form mothod="GET" action="/results">
+    <input type="text" name="key" placeholder="Search">
+  </form>
+</div>
+
+<div class="container clearfix album">
+  <div class="content-loading">
+    <div class="loading-img"></div>
+  </div>
+  <input type="hidden" value="{{ id }}" id="albumId" />
+  <div class="album-left">
+    <div class="album-preimg">
+      <img src="{{ album.previewimg }}?imageView2/2/w/600" alt="">
+    </div>
+    <h4 class="album-title">{{ album.name }}</h4>
+    <p class="album-summary">{{ album.summary }}</p>
+  </div>
+  <div class="album-right">
+    <div class="left-btn switch-btn" id="left"></div>
+    <div class="right-btn switch-btn" id="right"></div>
+    <div class="album-content" id="albumContent"></div>
+    <!-- <ul class="album-photo-list clearfix"></ul> -->
+  </div>
+</div>
+
+<div class="bigimg-content">
+  <div class="bigimg-bg"></div>
+  <i class="left-btn arrow-btn" id="left"></i>
+  <i class="right-btn arrow-btn" id="right"></i>
+  <i class="close-btn"></i>
+  <ul class="bigimg-list" id="bigImgList"></ul>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/hb/js/jquery.min.js"></script>
+  <script src="/hb/js/album.js"></script>
+{% endblock %}

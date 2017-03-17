@@ -1,0 +1,24 @@
+{% extends '../layout.html' %}
+
+{% block content %}
+<div class="login">
+  <div class="login-container">
+    <div class="login-header">系统后台登陆</div>
+    <div class="login-content">
+      <form action="/user/login" method="POST">
+        <div class="form-row">
+          <label for="id_username" class="required">Username:</label>
+          <input id="id_username" maxlength="254" name="user[name]" type="text">
+        </div>
+        <div class="form-row">
+          <label for="id_password" class="required">Password:</label>
+          <input id="id_password" maxlength="254" name="user[password]" type="password">
+        </div>
+        <div class="submit-row">
+          <input type="submit" class="submit-btn" value="Login">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+<aside class="sidebar">
+  <section class="widget">
+    <h2 class="widget-title">ABOUT ME</h2>
+    <div class="widget-content">
+      <p class="widget-sculptures">
+        <img src="http://7xpdau.com1.z0.glb.clouddn.com/touxiang20160403.jpg" alt="">
+      </p>
+      <p>孙驰，前端攻城狮</p>
+    </div>
+  </section>
+  <section class="widget">
+    <h2 class="widget-title">POPULAR POSTS</h2>
+    <div class="widget-content">
+      <ul class="widget-list">
+        {% for popular in populars %}
+          <li>
+            <a href="detail/{{ popular._id|safe }}">
+              {% if popular.previewimg.length == 0 %}
+                <img class="list-leftimg" src="http://7xpdau.com1.z0.glb.clouddn.com/1-150630194616401.jpg" alt="">
+              {% elseif popular.previewimg.indexOf('http:') > -1 %}
+                <img class="list-leftimg" src="{{ popular.previewimg }}" alt="">
+              {% else %}
+                <img class="list-leftimg" src="http://7xpdau.com1.z0.glb.clouddn.com/{{ popular.previewimg }}" alt="">
+              {% endif %}
+              <div class="list-right">
+                <h4>{{ popular.title }}</h4>
+              </div>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+</aside>

@@ -1,0 +1,46 @@
+{% extends '../layout.html' %}
+
+{% block content %}
+
+<!-- 头部 START -->
+{% include "../includes/template_header.html" %}
+<!-- 头部 END -->
+
+<div class="search-bar clearfix">
+  <img src="/hb/images/search-icon.png" alt="">
+  <form mothod="GET" action="/results">
+    <input type="text" name="key" placeholder="Search">
+  </form>
+</div>
+
+<div class="container clearfix picture">
+  <div class="main-photo-nav clearfix">
+    <span class="current" id="nav_photo">最新照片</span>
+    <span id="nav_album">相册信息</span>
+  </div>
+  <div class="main-photo clearfix picture-content" id="content_photo" style="display:none;">
+    <div class="photo-item" id="photoLeft"></div>
+    <div class="photo-item" id="photoCenter"></div>
+    <div class="photo-item" id="photoRight"></div>
+  </div>
+  <div class="content-loading">
+    <div class="loading-img"></div>
+  </div>
+  <div class="main-album picture-content" id="content_album" style="display:none;">
+    <ul class="album-list clearfix" id="albumList"></ul>
+  </div>
+</div>
+
+<div class="bigimg-content">
+  <div class="bigimg-bg"></div>
+  <i class="left-btn arrow-btn" id="left"></i>
+  <i class="right-btn arrow-btn" id="right"></i>
+  <i class="close-btn"></i>
+  <ul class="bigimg-list" id="bigImgList"></ul>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/hb/js/jquery.min.js"></script>
+  <script src="/hb/js/photo.js"></script>
+{% endblock %}

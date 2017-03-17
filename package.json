@@ -1,0 +1,64 @@
+{
+  "name": "homeblog",
+  "version": "1.0.0",
+  "description": "homeblog",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miaomiao8890/homeblog.git"
+  },
+  "keywords": [
+    "blog",
+    "chris"
+  ],
+  "author": "Sun Chi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miaomiao8890/homeblog/issues"
+  },
+  "homepage": "https://github.com/miaomiao8890/homeblog#readme",
+  "dependencies": {
+    "6to5-core": "^3.6.5",
+    "6to5-loader": "^3.0.0",
+    "bcrypt": "^0.8.5",
+    "body-parser": "^1.12.4",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "^1.3.5",
+    "ejs": "^2.3.4",
+    "express": "^4.12.3",
+    "express-partials": "^0.3.0",
+    "express-session": "^1.11.2",
+    "moment": "^2.10.2",
+    "mongoose": "^4.0.2",
+    "morgan": "^1.5.3",
+    "multer": "^0.1.8",
+    "multiparty": "^4.1.2",
+    "path": "^0.11.14",
+    "qiniu": "^6.1.13",
+    "serve-favicon": "^2.3.0",
+    "swig": "^1.4.2",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.10.0",
+    "del": "^1.2.0",
+    "gulp": "^3.9.0",
+    "gulp-cache": "^0.4.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jshint": "^1.12.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-minify-html": "^1.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-size": "^2.0.0",
+    "gulp-util": "^3.0.7",
+    "jquery": "^2.1.4",
+    "jshint-stylish": "^2.1.0",
+    "run-sequence": "^1.1.0",
+    "webpack": "^1.12.6",
+    "zepto": "0.0.4"
+  }
+}

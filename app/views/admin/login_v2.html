@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Chrislion">
+  <title>{{ title }}</title>
+  <meta name="description" content="Chrislion 孙驰的个人博客">
+  <meta name="Keywords" content="Chrislion 孙驰 博客 Blog">
+  <link rel="apple-touch-icon" sizes="128x128" href="/favicon.ico">
+  <link rel="stylesheet" href="/admin/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="/admin/css/main.css" type="text/css">
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-content">
+      <div class="login-logo">
+        <img src="admin/images/homelogo.png" alt="Chrislion">
+      </div>
+      <div id="loginbox" class="login-box">
+        <form id="loginform" class="form-vertical" action="/user/login" method="POST">
+          <p>Enter username and password to continue.</p>
+          <div class="control-group">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-user login"></i></span><input type="text" placeholder="Username" maxlength="254" name="user[name]">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <div class="input-prepend">
+                <span class="add-on"><i class="icon-lock login"></i></span><input type="password" placeholder="Password" maxlength="254" name="user[password]">
+              </div>
+            </div>
+          </div>
+          <div class="form-actions">
+            <span><input type="submit" class="btn btn-inverse" value="Login"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

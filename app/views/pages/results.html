@@ -1,0 +1,49 @@
+{% extends '../layout.html' %}
+
+{% block content %}
+
+<!-- 头部 START -->
+{% include "../includes/template_header.html" %}
+<!-- 头部 END -->
+
+<div class="search-wrap">
+  <form mothod="GET" action="/results">
+    <div class="search-input-wrap clearfix">
+      <input type="text" value="{{ keyword }}" name="key">
+      <button type="submit" class="search-btn">搜索</button>
+    </div>
+  </form> 
+</div>
+<div class="container clearfix ">
+  <ul class="search-list">
+    {% for article in articles %}
+      <li>
+        <h4><a href="detail/{{ article._id|safe }}">{{ article.title }}</a></h4>
+        <p>标签：{{article.category}}</p>
+        <p class="search-summary">{{article.summary}}</p>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="pagenav">
+    <ul class="pagination">
+    {% if totalPage.length == 1 %}
+      <li class="current"><a href="javascript:void(0);">1</a></li>
+    {% else %}
+      {% if currentPage > 1 %}
+        <li><a href="/results?{{ query }}&p={{ currentPage-2 }}">PREV</a></li>
+      {% endif %}
+      {% for i, val in totalPage %}
+        {% if currentPage == i+1 %}
+          <li class="current"><a href="javascript:void(0);">{{ i+1 }}</a>
+        {% else %}
+          <li><a href="/results?{{ query }}&p={{ i }}">{{ i+1 }}</a>
+        {% endif %}
+      {% endfor %}
+      {% if currentPage < totalPage.length %}
+        <li><a href="/results?{{ query }}&p={{ currentPage }}">NEXT</a></li>
+      {% endif %}
+    {% endif %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

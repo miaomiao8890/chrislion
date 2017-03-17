@@ -1,0 +1,94 @@
+{% extends '../layout.html' %}
+
+{% block content %}
+<!-- 头部 START -->
+{% include "../includes/template_header.html" %}
+<!-- 头部 END -->
+<div class="search-bar clearfix">
+  <img src="/hb/images/search-icon.png" alt="">
+  <form mothod="GET" action="/results">
+    <input type="text" name="key" placeholder="Search">
+  </form>
+</div>
+<!-- 轮播 START -->
+<section class="slider-area">
+  <div class="slide" id="slide">
+    <ul class="slide-img clearfix" id="slide-img">
+      {% for article in articles %}
+        <li>
+          <a href="detail/{{ article._id|safe }}">
+            {% if article.previewimg.length == 0 %}
+              <img src="http://7xpdau.com1.z0.glb.clouddn.com/1-150630194616401.jpg" alt="">
+            {% elseif article.previewimg.indexOf('http:') > -1 %}
+              <img src="{{ article.previewimg }}" alt="">
+            {% else %}
+              <img src="http://7xpdau.com1.z0.glb.clouddn.com/{{ article.previewimg }}" alt="">
+            {% endif %}
+          </a>
+          <div class="info">
+            <span class="info-tag">{{ article.category }}</span>
+            <h3 class="info-title">{{ article.title }}</h3>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="slide-bottom">
+      <ul class="slide-num" id="slide-num">
+        <!-- <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li> -->
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- 轮播 END -->
+<div class="container clearfix">
+  <section class="main">
+    <div class="main-container clearfix">
+      {% for article in articles %}  
+        <article>
+          <div class="article-header">
+            <h2><a href="detail/{{ article._id|safe }}">{{ article.title }}</a></h2>
+            <div class="article-date">
+              <span class="article-date-info"><span>{{ article.meta.createAt|date('m/d/Y') }}</span></span>
+            </div>
+          </div>
+          <div class="article-content">
+            <div class="article-image">
+              {% if article.previewimg.length == 0 %}
+                <img src="http://7xpdau.com1.z0.glb.clouddn.com/1-150630194616401.jpg" alt="">
+              {% elseif article.previewimg.indexOf('http:') > -1 %}
+                <img src="{{ article.previewimg }}" alt="">
+              {% else %}
+                <img src="http://7xpdau.com1.z0.glb.clouddn.com/{{ article.previewimg }}" alt="">
+              {% endif %}
+            </div>
+            <div class="article-context">
+              <div class="article-preview index">{{ article.summary }}</div>
+              <p><a class="more-link" href="detail/{{ article._id|safe }}">Read More</a></p>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    <div class="pagination">
+      <div class="older">
+        <a href="list">
+          <span class="pager-heading">Older Posts</span>
+          <span class="post-nav-icon"><i class="fa fa-chevron-right"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- 右边栏 start -->
+  {% include "../includes/template_aside.html" %}
+  <!-- 右边栏 end -->
+</div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="/hb/js/jquery.min.js"></script>
+  <script src="/hb/js/index.js"></script>
+{% endblock %}
