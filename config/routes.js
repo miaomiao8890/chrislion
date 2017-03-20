@@ -17,6 +17,15 @@ module.exports = function(app){
     next();
   });
 
+  //CORS middleware
+  var allowCrossDomain = function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+  }
+
   // Homeblog
   app.get("/", Index.index);
   app.get("/list", List.list)
@@ -68,7 +77,7 @@ module.exports = function(app){
   app.post("/upload", Admin.uploadImg);
 
   // PWA API
-  app.get('/pwa/beauty/directories', PWA.getBeautyDirectoryAll);
-  app.get('/pwa/beauty/directory/:id', PWA.getBeautyDirectoryDetail);
+  app.get('/pwa/beauty/directories', allowCrossDomain, PWA.getBeautyDirectoryAll);
+  app.get('/pwa/beauty/directory/:id', allowCrossDomain, PWA.getBeautyDirectoryDetail);
 
 }
