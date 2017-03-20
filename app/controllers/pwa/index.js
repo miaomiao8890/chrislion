@@ -40,7 +40,7 @@ exports.getBeautyDirectoryDetail = function(req, res){
         res.json({
           status_code: 200,
           message: 'ok',
-          result: beautyDirectory
+          result: beautyDirectory.photos
         });
       }
   });
