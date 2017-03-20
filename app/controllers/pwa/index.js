@@ -26,7 +26,7 @@ exports.getBeautyDirectoryDetail = function(req, res){
   BeautyDirectory
     .findOne({_id: id})
     .populate({
-      path: "beauty_photos",
+      path: "photos",
       select: "url"
     })
     .exec(function(err, beautyDirectory){
@@ -40,7 +40,7 @@ exports.getBeautyDirectoryDetail = function(req, res){
         res.json({
           status_code: 200,
           message: 'ok',
-          result: beautyDirectory.photos
+          result: beautyDirectory
         });
       }
   });

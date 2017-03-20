@@ -10,7 +10,7 @@ var options = {
   user: 'admin',
   pass: '=7wx&rJKw8J%ZIJ^iBV234)Tz5s78huhoIHsHD8786*)hs'
 }
-var dbUrl = "mongodb://superuser:j8asfjj9$80(as**hh))80asf@127.0.0.1:27017/homeblog";
+var dbUrl = "mongodb://superuser:j8asfjj9$80(as**hh))80asf@123.57.21.57:27017/homeblog";
 mongoose.connect(dbUrl);
 //favicon
 var favicon = require('serve-favicon');
