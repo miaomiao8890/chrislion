@@ -1,5 +1,5 @@
-var BeautyDirectory = require("../models/pwa/beauty_directory");
-var BeautyPhoto = require("../models/pwa/beauty_photo");
+var BeautyDirectory = require("../../models/pwa/beauty_directory");
+var BeautyPhoto = require("../../models/pwa/beauty_photo");
 
 // API
 exports.getBeautyDirectoryAll = function(req, res) {
