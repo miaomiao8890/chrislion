@@ -79,5 +79,6 @@ module.exports = function(app){
   // PWA API
   app.get('/pwa/beauty/directories', allowCrossDomain, PWA.getBeautyDirectoryAll);
   app.get('/pwa/beauty/directory/:id', allowCrossDomain, PWA.getBeautyDirectoryDetail);
+  app.get('/pwa/beauty/photos', allowCrossDomain, PWA.getBeautyPhotos);
 
 }
