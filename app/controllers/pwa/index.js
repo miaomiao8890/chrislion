@@ -45,3 +45,27 @@ exports.getBeautyDirectoryDetail = function(req, res){
       }
   });
 }
+
+exports.getBeautyPhotos = function(req, res){
+  var reqTime = req.query.n
+  BeautyPhoto
+    .find({})
+    .sort({"meta.updateAt": -1})
+    .limit(50)
+    .skip(reqTime*50)
+    .exec(function(err, beautyPhotos){
+      if(err){
+        res.json({
+          status_code: 500,
+          message: err,
+          result: []
+        });
+      } else {
+        res.json({
+          status_code: 200,
+          message: 'ok',
+          result: beautyPhotos
+        });
+      }
+    });
+}
