@@ -5,11 +5,19 @@ var mongoose = require("mongoose");
 var swig = require('swig');
 
 var port = process.env.PORT || 8080;
+var sslport = process.env.PORT || 443
 var app = express();
-var options = {
-  user: 'admin',
-  pass: '=7wx&rJKw8J%ZIJ^iBV234)Tz5s78huhoIHsHD8786*)hs'
-}
+
+// https
+var fs = require('fs')
+var http = require('http')
+var https = require('https')
+var hskey  = fs.readFileSync('/usr/local/ssl/hacksparrow-key.pem')
+var hscert = fs.readFileSync('/usr/local/ssl/hacksparrow-cert.pem')
+var credentials = {key: hskey, cert: hscert}
+var httpServer = http.createServer(app);
+var httpsServer = https.createServer(credentials, app)
+
 var dbUrl = "mongodb://superuser:j8asfjj9$80(as**hh))80asf@123.57.21.57:27017/homeblog";
 mongoose.connect(dbUrl);
 //favicon
@@ -47,9 +55,14 @@ app.use(cookieParser())
 
 app.use(express.static(path.join(__dirname, "public")));
 app.locals.moment = require("moment");
-app.listen(port);
+// app.listen(port);
 
-console.log("homeblog started on prot " + port);
+httpServer.listen(port, function() {
+  console.log('HTTP Server is running on: http://localhost:%s', port);
+});
+httpsServer.listen(sslport, function() {
+  console.log('HTTPS Server is running on: https://localhost:%s', sslport);
+});
 
 var morgan = require("morgan");
 if("development" === app.get("env")) {
@@ -57,6 +70,6 @@ if("development" === app.get("env")) {
   app.use(morgan(":method :url :status"));
   app.locals.pretty = true;
   mongoose.set("debug", true);
-} 
+}
 
 require("./config/routes")(app);
